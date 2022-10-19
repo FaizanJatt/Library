@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
 
   try {
     const authors = await Author.find(searchOptions);
-    res.render("authors/index", { authors: authors, searchOptions: req.query });
+    res.render("authors/index", { authors, searchOptions: req.query });
   } catch (error) {
     res.redirect("/");
   }
@@ -34,7 +34,7 @@ router.post("/", async (req, res) => {
     res.redirect("authors");
   } catch {
     res.render("authors/new", {
-      author: author,
+      author,
       errorMessage: "error creating Author",
     });
   }
