@@ -83,7 +83,6 @@ router.put("/:id", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   let author;
-  console.log(req.params.id);
   try {
     author = await Author.findById(req.params.id);
     await author.remove();
